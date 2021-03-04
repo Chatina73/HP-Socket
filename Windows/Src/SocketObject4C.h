@@ -334,6 +334,18 @@ public:
 	HP_FN_Client_OnClose			m_fnOnClose			;
 };
 
+typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener>						C_HP_TcpServerListener;
+typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener, sizeof(IPullSocket)>	C_HP_TcpPullServerListener;
+typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener, sizeof(IPackSocket)>	C_HP_TcpPackServerListener;
+
+typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener>							C_HP_TcpAgentListener;
+typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener, sizeof(IPullSocket)>		C_HP_TcpPullAgentListener;
+typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener, sizeof(IPackSocket)>		C_HP_TcpPackAgentListener;
+
+typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener>						C_HP_TcpClientListener;
+typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener, sizeof(IPullClient)>	C_HP_TcpPullClientListener;
+typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener, sizeof(IPackClient)>	C_HP_TcpPackClientListener;
+
 #ifdef _UDP_SUPPORT
 
 template<class T, class L, size_t offset = 0> class C_HP_UdpNodeListenerT : public L
@@ -395,22 +407,6 @@ public:
 	HP_FN_UdpNode_OnError			m_fnOnError			;
 	HP_FN_UdpNode_OnShutdown		m_fnOnShutdown		;
 };
-
-#endif
-
-typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener>						C_HP_TcpServerListener;
-typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener, sizeof(IPullSocket)>	C_HP_TcpPullServerListener;
-typedef C_HP_ServerListenerT<ITcpServer, ITcpServerListener, sizeof(IPackSocket)>	C_HP_TcpPackServerListener;
-
-typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener>							C_HP_TcpAgentListener;
-typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener, sizeof(IPullSocket)>		C_HP_TcpPullAgentListener;
-typedef C_HP_AgentListenerT<ITcpAgent, ITcpAgentListener, sizeof(IPackSocket)>		C_HP_TcpPackAgentListener;
-
-typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener>						C_HP_TcpClientListener;
-typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener, sizeof(IPullClient)>	C_HP_TcpPullClientListener;
-typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener, sizeof(IPackClient)>	C_HP_TcpPackClientListener;
-
-#ifdef _UDP_SUPPORT
 
 typedef C_HP_ServerListenerT<IUdpServer, IUdpServerListener>						C_HP_UdpServerListener;
 typedef C_HP_ClientListenerT<IUdpClient, IUdpClientListener>						C_HP_UdpClientListener;

@@ -894,11 +894,11 @@ public:
 	virtual void SetFreeBufferPoolHold		(DWORD dwFreeBufferPoolHold)						= 0;
 
 	/* 获取地址重用选项 */
-	virtual EnReuseAddressPolicy GetReuseAddressPolicy()										= 0;
+	virtual EnReuseAddressPolicy GetReuseAddressPolicy	()										= 0;
 	/* 获取内存块缓存池大小 */
-	virtual DWORD GetFreeBufferPoolSize		()													= 0;
+	virtual DWORD GetFreeBufferPoolSize					()										= 0;
 	/* 获取内存块缓存池回收阀值 */
-	virtual DWORD GetFreeBufferPoolHold		()													= 0;
+	virtual DWORD GetFreeBufferPoolHold					()										= 0;
 
 public:
 	virtual ~IClient() {}
